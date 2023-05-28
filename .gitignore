@@ -1,0 +1,14 @@
+# Cosmopolitan Libc files
+ape.lds
+ape.o
+ape-copy-self.o
+ape-no-modify-self.o
+cosmopolitan.a
+cosmopolitan.h
+crt.o
+*.zip
+
+# compiled binaries
+*.com
+*.dbg
+build/
