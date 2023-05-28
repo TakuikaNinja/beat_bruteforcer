@@ -22,7 +22,7 @@ Check out the [APE format](https://justine.lol/ape.html) and the [Libc repo](htt
 1. Download and extract [Cosmopolitan Libc](https://justine.lol/cosmopolitan/download.html) to the directory (tiny is perferred).
 1. Run `make` and the binaries should be made.
 
-Note: There is currently an issue where binaries built with the latest GCC causes them to crash on Windows. Sorry.
+Note: There is currently an issue where using the latest GCC causes binaries to crash on Windows. Sorry.
 
 ## Greetz
 - jart, for the amazing [Cosmopolitan Libc](https://justine.lol/cosmopolitan/index.html).
