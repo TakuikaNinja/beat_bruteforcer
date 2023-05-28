@@ -1,6 +1,6 @@
 #define MINLEN 4
 #define MAXERRORS 7
-#define DBG 1
+#define DBG 0
 
 // dictionary & length from dict.c
 extern char *dict[];
@@ -135,7 +135,6 @@ void printerrors(struct player *p, struct player *o) {
 
 int main() {
 	// seed RNG
-	if (DBG) printf("Welcome to beat_bruteforcer!\n");
 	srand(time(0));
 	
 	printf("Welcome to beat_bruteforcer!\n");

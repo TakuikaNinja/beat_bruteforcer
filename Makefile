@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc-9
 OBJCOPY=objcopy
 
 BUILDTARGET = beat_bruteforcer$(TYPE).com
