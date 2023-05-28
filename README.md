@@ -18,9 +18,11 @@ Linux users: You may need to run `bash ./beat_bruteforcer.com` or `bash -c './be
 Check out the [APE format](https://justine.lol/ape.html) and the [Libc repo](https://github.com/jart/cosmopolitan) for details on how this black magic works.
 
 ## Building on Linux
-1. Clone this repo.
+1. Clone [the repo](https://github.com/TakuikaNinja/beat_bruteforcer).
 1. Download and extract [Cosmopolitan Libc](https://justine.lol/cosmopolitan/download.html) to the directory (tiny is perferred).
 1. Run `make` and the binaries should be made.
+
+Note: There is currently an issue where binaries built with the latest GCC causes them to crash on Windows. Sorry.
 
 ## Greetz
 - jart, for the amazing [Cosmopolitan Libc](https://justine.lol/cosmopolitan/index.html).
