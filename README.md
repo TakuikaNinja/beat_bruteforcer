@@ -11,21 +11,21 @@ The Cr4CK3r has generously created the training program I've included. Git Gud a
 (Yes, I embedded dictionary into binary. I even made script to automate process. Deal with it. - da Cr4CK3r)
 
 ## Running
-The binary is built using [Cosmopolitan Libc](https://justine.lol/cosmopolitan/index.html).
-Basically, it can build tiny CLI programs which run on pretty much anything with x86 (ARM? ya gonna need emulation for that).
+The binary is built using [Cosmopolitan Libc](https://github.com/jart/cosmopolitan).
+Basically, it can build tiny CLI programs which run on pretty much anything.
 Linux users: You may need to run `bash ./beat_bruteforcer.com` or `bash -c './beat_bruteforcer.com'` as the binary needs to be interpreted as a shell script.
 
-Check out the [APE format](https://justine.lol/ape.html) and the [Libc repo](https://github.com/jart/cosmopolitan) for details on how this black magic works.
+Check out the [APE format](https://justine.lol/ape.html) for details on how this black magic works.
 
 ## Building on Linux
-1. Clone [the repo](https://github.com/TakuikaNinja/beat_bruteforcer).
-1. Download and extract [Cosmopolitan Libc](https://justine.lol/cosmopolitan/download.html) to the directory (tiny is perferred).
+1. Install [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) (make sure it can run `cosmocc`, or alternatively `fatcosmocc` for AMD64 + ARM64 fat binaries).
+2. Optionally configure tiny mode: `export MODE=tiny; (fat)cosmocc --update`
+1. Clone [this repo](https://github.com/TakuikaNinja/beat_bruteforcer) and adjust the Makefile as needed.
 1. Run `make` and the binaries should be made.
 
-Note: There is currently an issue where using the latest GCC causes binaries to crash on Windows. Please use GCC-9 as that is known to work.
 
 ## Greetz
-- jart, for the amazing [Cosmopolitan Libc](https://justine.lol/cosmopolitan/index.html).
+- jart, for the amazing [Cosmopolitan Libc](https://github.com/jart/cosmopolitan).
 - [Caldera International Inc.](https://github.com/jart/cosmopolitan/blob/master/examples/hangman.c), whose Hangman code was "referenced".
 - mrdziuban, for the [dictionary](https://github.com/mrdziuban/Hangman/blob/master/dictionary.txt).
 

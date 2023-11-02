@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #define MINLEN 4
 #define MAXERRORS 7
 #define DBG 0

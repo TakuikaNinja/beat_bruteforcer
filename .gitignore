@@ -11,4 +11,5 @@ crt.o
 # compiled binaries
 *.com
 *.dbg
+*.elf
 build/
