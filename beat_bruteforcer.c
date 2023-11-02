@@ -33,7 +33,7 @@ void getword(char *word) {
 
 struct player {
 	char guess[26];
-	char input[26];
+	char input;
 	char alpha[26];
 	int errors;
 	int score;
@@ -41,13 +41,18 @@ struct player {
 
 void init(struct player *p, char *word) {
 	memset(p->guess, 0, 26);
-	memset(p->input, 0, 26);
+	p->input = '\0';
 	memset(p->alpha, 0, 26);
 	p->errors = 0;
 	p->score = 0;
 	for (int i=0; i<strlen(word); i++) {
 		p->guess[i] = '-';
 	}
+}
+
+void scanletter(struct player *p) {
+	p->input = tolower(fgetc(stdin)); // get single char & convert to lower case
+	while ((getchar()) != '\n'); // flush rest of stdin
 }
 
 int finished(struct player *p) {
@@ -65,17 +70,17 @@ int finished(struct player *p) {
 	return 1;
 }
 
-int checkguess(struct player *p, char c, char *word) {
+int checkguess(struct player *p, char *word) {
 	int ok = 0;
 	// fill all guessed letters
 	for (int i=0; i<strlen(word); i++) {
-		if (c == word[i]) {
+		if (p->input == word[i]) {
 			p->guess[i] = word[i];
 			ok = 1;
 		}
 	}
 	// save input in used letters
-	p->alpha[c - 'a'] = c;
+	p->alpha[p->input - 'a'] = p->input;
 	
 	// if no letters were found
 	if (ok == 0) {
@@ -86,19 +91,17 @@ int checkguess(struct player *p, char c, char *word) {
 
 void getinput(struct player *p, char *word) {
 	// get valid input not seen yet
-	char c;
 	do {
 		printf("%s\nYour guess:\n", p->guess);
-		gets(p->input);
-		c = tolower(p->input[0]);
-		if (p->alpha[c - 'a'] != 0) {
+		scanletter(p);
+		if (p->alpha[p->input - 'a'] != 0) {
 			printf("Already guessed\n");
-			c = '\0';
+			p->input = '\0';
 		}
-	} while(!isalpha(c));
+	} while(!isalpha(p->input));
 	
 	// check the input
-	if(checkguess(p, c, word)) {
+	if(checkguess(p, word)) {
 		printf("Correct!\n");
 	} else {
 		printf("Incorrect\n");
@@ -108,11 +111,10 @@ void getinput(struct player *p, char *word) {
 void bruteforce(struct player *p, char *word) {
 	// guess the letters in order of most to least common
 	// order sourced from Robert Lewand's "Cryptological Mathematics"
-	char c;
 	char *common = "etaoinshrdlcumwfgypbvkjxqz";
 	for (int i=0; i<strlen(common); i++) {
-		c = common[i];
-		if (p->alpha[c - 'a'] == 0) {
+		p->input = common[i];
+		if (p->alpha[p->input - 'a'] == 0) {
 			break;
 		}
 	}
@@ -120,11 +122,11 @@ void bruteforce(struct player *p, char *word) {
 	// for debugging purposes
 	printf("\n");
 	if (DBG) {
-		printf("Bruteforcer's guess: %c\n", c);
+		printf("Bruteforcer's guess: %c\n", p->input);
 	}
 	
 	// check the input
-	if(checkguess(p, c, word)) {
+	if(checkguess(p, word)) {
 		printf("Bruteforcer guessed a letter\n");
 	} else {
 		printf("Bruteforcer made an error\n");
@@ -178,8 +180,8 @@ int main() {
 		}
 		
 		printf("Do you want to play again? (y/n):\n");
-		gets(player.input);
-		if (tolower(player.input[0]) == 'y') {
+		scanletter(&player);
+		if (player.input == 'y') {
 			cont = 1;
 		}
 		printf("\nScores:\nYou %d:%d Bruteforcer\n", player.score, cpu.score);
