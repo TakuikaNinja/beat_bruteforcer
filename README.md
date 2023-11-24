@@ -18,10 +18,9 @@ Linux users: You may need to run `bash ./beat_bruteforcer.com` or `bash -c './be
 Check out the [APE format](https://justine.lol/ape.html) for details on how this black magic works.
 
 ## Building on Linux
-1. Install [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) (make sure it can run `cosmocc`, or alternatively `fatcosmocc` for AMD64 + ARM64 fat binaries).
-2. Optionally configure tiny mode: `export MODE=tiny; (fat)cosmocc --update`
-1. Clone [this repo](https://github.com/TakuikaNinja/beat_bruteforcer) and adjust the Makefile as needed.
-1. Run `make` and the binaries should be made.
+1. Install [Cosmopolitan Libc](https://github.com/jart/cosmopolitan) (make sure it can run `cosmocc` via PATH).
+1. Clone [this repo](https://github.com/TakuikaNinja/beat_bruteforcer).
+1. Run `make` and the APE binary should be made.
 
 
 ## Greetz
