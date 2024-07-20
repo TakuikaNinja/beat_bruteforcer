@@ -1,4 +1,4 @@
-CC=cosmocc
+CC=cosmocc/bin/cosmocc
 
 BUILDTARGET = beat_bruteforcer
 
@@ -8,5 +8,5 @@ $(BUILDTARGET): $(wildcard *.c)
 	$(CC) -o $(BUILDTARGET).com *.c
 
 clean:
-	rm *.com *.dbg
+	rm *.com *.dbg *.elf
 
