@@ -94,7 +94,9 @@ void getinput(struct player *p, char *word) {
 	do {
 		printf("%s\nYour guess:\n", p->guess);
 		scanletter(p);
-		if (p->alpha[p->input - 'a'] != 0) {
+		if (!isalpha(p->input)) {
+			printf("Not a letter\n");
+		} else if (p->alpha[p->input - 'a'] != 0) {
 			printf("Already guessed\n");
 			p->input = '\0';
 		}
